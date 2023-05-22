@@ -87,7 +87,7 @@ header {
 .main {
   max-width: 800px;
   margin: 40px auto 0;
-  background: #fff url('/home/lucien/Images/copains-1-de-pêche-111164.jpg') no-repeat center center fixed;
+  background: #fff;
   background-size: cover;
   border-radius: 4px;
   transition: .35s linear;
@@ -286,6 +286,7 @@ footer p {
     display: inline-block;
   float: left;
   width: 33%;
+  margin: 0 auto;
 }
 .grid-25{
     display: inline-block;

@@ -44,10 +44,26 @@ def after_request(response):
 	g.db.close()
 	return response
 
+import re
+
+def is_valid_email(email):
+	# expression régulière pour vérifier la syntaxe d'une adresse e-mail
+	pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+	email = str(email)
+	return re.match(pattern, email) is not None
 
 @app.route('/register', methods = ('GET','POST'))
 def register():
 	form = forms.RegisterForm()
+	if is_valid_email(form.email.data) == False:
+		flash("Email is not valid", "error")
+		return render_template('register.html', form = form) #on regarde si l'email est valide (de la bonne forme)
+	# on regarde si l'email est déjà utilisé
+	try:
+		models.User.get(models.User.email == form.email.data) #on regarde si l'email est déjà utilisé
+		flash("Email already used", "error")
+	except models.DoesNotExist: 
+		pass
 	if form.validate_on_submit():
 		flash("Congrats, Registered Successfully!", "success")
 		models.User.create_user(
@@ -57,7 +73,6 @@ def register():
 		)
 		return redirect(url_for('index'))
 	return render_template('register.html', form = form)
-
 
 @app.route('/login', methods = ('GET', 'POST'))
 def login():
@@ -174,8 +189,8 @@ if __name__ == '__main__':
 	models.initialize()
 	try:
 		models.User.create_user(
-			username = 'niteshsharma',
-			email = 'nbsharma@outlook.com',
+			username = 'lucienrondier',
+			email = 'lucienrondier@outlook.com',
 			password = 'password',
 			admin = True
 		)
