@@ -7,7 +7,7 @@
       }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/app.py" }
+      { "src": "/(.*)", "dest": "/home/lucien/Documents/réseau_social/Flask-Social-Networking/app.py" }
     ]
   }
   
