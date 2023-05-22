@@ -1,10 +1,5 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "/home/lucien/Documents/réseau_social/Flask-Social-Networking/app.py",
-        "use": "@vercel/python"
-      }
-    ]
-  } 
-  
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/Flask-Social-Networking/app" }
+  ]
+}
