@@ -185,16 +185,16 @@ def unfollow(username):
 def not_found(error):
 	return render_template('404.html'), 404
 
-# if __name__ == '__main__':
-# 	models.initialize()
-# 	try:
-# 		models.User.create_user(
-# 			username = 'lucienrondier',
-# 			email = 'lucienrondier@outlook.com',
-# 			password = 'password',
-# 			admin = True
-# 		)
-# 	except ValueError:
-# 		pass
-# 	app.run(debug=DEBUG,host = HOST, port = PORT)
+if __name__ == '__main__':
+	models.initialize()
+	try:
+		models.User.create_user(
+			username = 'lucienrondier',
+			email = 'lucienrondier@outlook.com',
+			password = 'password',
+			admin = True
+		)
+	except ValueError:
+		pass
+	app.run(debug=DEBUG,host = HOST, port = PORT)
 

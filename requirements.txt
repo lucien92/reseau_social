@@ -3,3 +3,9 @@ peewee
 flask-login
 flask-bcrypt
 flask-wtf
+email_validator
+datetime
+wtforms
+wtforms.validators
+forms
+re  
