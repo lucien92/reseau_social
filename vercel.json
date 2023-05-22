@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "app.py",
+        "src": "/home/lucien/Documents/réseau_social/Flask-Social-Networking/app.py",
         "use": "@vercel/python"
       }
     ],
